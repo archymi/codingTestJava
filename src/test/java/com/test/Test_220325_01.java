@@ -11,17 +11,17 @@ public class Test_220325_01 {
 
     private static String solution(String[] participant, String[] completion) {
         String answer = "";
-        HashMap<String, Integer> partipantList = new HashMap<>();
+        HashMap<String, Integer> participantMap = new HashMap<>();
         Arrays.stream(participant).forEach(p -> {
-            partipantList.put(p, partipantList.getOrDefault(p, 0) + 1);
+            participantMap.put(p, participantMap.getOrDefault(p, 0) + 1);
         });
         for (String completeMan : completion) {
-            if (partipantList.containsKey(completeMan)) {
-                partipantList.put(completeMan, partipantList.get(completeMan) - 1);
+            if (participantMap.containsKey(completeMan)) {
+                participantMap.put(completeMan, participantMap.get(completeMan) - 1);
             }
         }
-        for (String man : partipantList.keySet()) {
-            if (partipantList.get(man) > 0) {
+        for (String man : participantMap.keySet()) {
+            if (participantMap.get(man) > 0) {
                 answer = man;
                 break;
             }
